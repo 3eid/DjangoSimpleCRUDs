@@ -2,15 +2,13 @@
 <html lang="en">  
 <head>  
     <meta charset="UTF-8">  
-    <title>create New Person</title>  
+    <title>create new form</title>  
 </head>  
-<body>
-<h1>Create New Person</h1>
-<br><br>  
-<form method="POST" >  
+<body>  
+<form method="POST" class="post-form">  
         {% csrf_token %}  
         {{ form.as_p }}  
-        <button type="submit" >Save</button>  
+        <button type="submit" class="save btn btn-default">Save</button>  
     </form>  
 </body>  
 </html>  

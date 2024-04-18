@@ -28,4 +28,18 @@ def createPerson(request):
             form.save()
             return redirect("home")
     
-        
+
+def updatePerson(request,id):
+    
+    person = Person.objects.get(id=id)
+
+    if request.method == 'POST':
+        form = PersonForm(request.POST, instance=person)
+        if form.is_valid():
+            form.save()
+            return redirect("person",id)
+    else:
+        form = PersonForm( instance=person)
+
+    return render(request,'update.html', {'form': form,'person':person})
+     
