@@ -1,2 +1,2 @@
 # DjangoSimpleCRUDs
-Simple CRYD operations project using Django Framework
+Simple CRUD operations project using Django Framework
