@@ -7,7 +7,10 @@ def home(request):
 
 
 def listPersons(request):
-    
     persons = Person.objects.all()
-    
     return render(request, "persons.html", {"persons": persons})
+
+
+def showPerson(request, id):
+    person = Person.objects.get(pk=id)   
+    return render(request, "person.html", {"person": person})
