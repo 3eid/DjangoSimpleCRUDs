@@ -1,35 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    {% extends 'base.html' %}
     <title>Person Records</title>
-</head>
-<body>
+    {% block content %}
     <h1>Person Records:</h1>
     <br><br>
 
-    <table>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>age</th>
-          <th>nationalityID</th>
-          <th>Birthdate</th>
-        </tr>
-        {% for person in persons%}
-        <tr>
-          <td>{{person.id}}</td>
-          <td>{{person.name}}</td>
-          <td>{{person.age}}</td>
-          <td>{{person.nationalityID}}</td>
-          <td>{{person.birthDate}}</td>
-          <td><a href="#" onclick="confirmDelete({{ person.id }})">Delete</a></td>
-          <td><a href="{% url 'updatePerson' person.id %}">update</a></td>
-        </tr>
-        {% endfor %}
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+          <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Nationality ID</th>
+              <th scope="col">Birthdate</th>
+              <th scope="col">Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for person in persons %}
+          <tr>
+              <td>{{ person.id }}</td>
+              <td>{{ person.name }}</td>
+              <td>{{ person.age }}</td>
+              <td>{{ person.nationalityID }}</td>
+              <td>{{ person.birthDate }}</td>
+              <td>
+                  <a href="#" onclick="confirmDelete({{ person.id }})" class="btn btn-danger">Delete</a>
+                  <a href="{% url 'updatePerson' person.id %}" class="btn btn-primary">Update</a>
+              </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
 
-      </table>
 
       <script>
         function confirmDelete(id) {
@@ -40,5 +44,4 @@
             }
         }
       </script>
-</body>
-</html>
+      {% endblock %}

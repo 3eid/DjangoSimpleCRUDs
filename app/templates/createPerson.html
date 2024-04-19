@@ -1,16 +1,32 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>create New Person</title>  
-</head>  
-<body>
-<h1>Create New Person</h1>
-<br><br>  
-<form method="POST" >  
-        {% csrf_token %}  
-        {{ form.as_p }}  
-        <button type="submit" >Save</button>  
-    </form>  
-</body>  
-</html>  
+
+
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block title %}Create Person{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Create New Person</h1>
+    <br><br>
+    <form method="POST" class="needs-validation">
+        {% csrf_token %}
+        <!-- Loop through each field in the form -->
+        {% for field in form %}
+        <div class="mb-3">
+            {{ field.label_tag }}
+            <!-- Add Bootstrap classes to the form field using the custom filter -->
+            {{ field|add_css_class:'form-control' }}
+            <!-- Display field errors -->
+            {% if field.errors %}
+            <div class="invalid-feedback">
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

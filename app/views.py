@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Person
 from .forms import PersonForm
 # Create your views here.
@@ -13,7 +13,7 @@ def listPersons(request):
 
 
 def showPerson(request, id):
-    person = Person.objects.get(pk=id)   
+    person = get_object_or_404(Person,pk=id)   
     return render(request, "person.html", {"person": person})
 
 def createPerson(request):
@@ -31,7 +31,7 @@ def createPerson(request):
 
 def updatePerson(request,id):
 
-    person = Person.objects.get(id=id)
+    person = get_object_or_404(Person,pk=id) 
     if request.method == 'POST':
         form = PersonForm(request.POST, instance=person)
         if form.is_valid():
@@ -44,6 +44,6 @@ def updatePerson(request,id):
 
 def deletePerson(request,id):
     if request.method == "GET":
-        person = Person.objects.get(id=id)
+        person = get_object_or_404(Person,pk=id) 
         person.delete()
         return redirect("persons")
