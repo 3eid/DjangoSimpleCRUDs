@@ -8,6 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Persons!</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+    <style>
+        /* Override Bootstrap's secondary button color */
+        .btn-primary {
+            color: #ffffff; /* Text color */
+            background-color: #2d6d17; /* Background color */
+            border-color: #2d6d17; /* Border color */
+        }
+        /* Override Bootstrap's secondary button color on hover */
+        .btn-primary:hover {
+            color: #ffffff; /* Text color */
+            background-color: #235613; /* Background color */
+            border-color: #2d6d17; /* Border color */
+        }
+        
+        .card-header {
+            background-color: #2d6d17;
+        }
+    </style>
   </head>
   <body>
 
