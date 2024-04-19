@@ -4,7 +4,7 @@ from .forms import PersonForm
 # Create your views here.
 
 def home(request):
-    return render(request, "home.html")
+    return redirect("persons")
 
 
 def listPersons(request):
