@@ -12,12 +12,21 @@ Home Page (List Person Records):
 Single Person Detail Page:
 ![Person Detail Page](Documentation/person.png)
 Create a New Person Record:
-![Create New Person Record](Documentation/Create.png)
+![Create New Person Record](Documentation/create.png)
 Update a Person Record:
-![Update New Person Record](Documentation/Update.png)
+![Update New Person Record](Documentation/update.png)
 Delete a Person Record:
 ![Delete  A Person Record (confirmation) ](Documentation/confirm_deletion.png)
 
+## Usage
+
+| Endpoint           | Description                                           |
+|--------------------|-------------------------------------------------------|
+| `/persons`         | Lists all the persons in the database.               |
+| `/person`          | Shows details of a specific person.                  |
+| `/persons/create`  | Allows adding a new person to the database.          |
+| `/persons/{id}/update` | Allows editing details of an existing person.     |
+| `/persons/{id}/delete` | Deletes a person from the database.                |
 
 ## Installation:
 
@@ -42,15 +51,6 @@ To run the project locally, follow these steps:
    python manage.py runserver
 6. Access the application in your browser at http://localhost:8000
 
-## Usage
-
-| Endpoint           | Description                                           |
-|--------------------|-------------------------------------------------------|
-| `/persons`         | Lists all the persons in the database.               |
-| `/person`          | Shows details of a specific person.                  |
-| `/persons/create`  | Allows adding a new person to the database.          |
-| `/persons/{id}/update` | Allows editing details of an existing person.     |
-| `/persons/{id}/delete` | Deletes a person from the database.                |
 
 
 
